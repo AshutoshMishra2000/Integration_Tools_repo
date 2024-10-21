@@ -45,4 +45,6 @@ public class UserDTO implements Serializable {
     @NotNull(groups = Groups.Add.class)
     @Null(groups =Groups.Get.class )
     private Integer addressId;
+
+    //this is test commit
 }
