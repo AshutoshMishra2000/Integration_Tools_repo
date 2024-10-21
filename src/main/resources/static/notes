@@ -1,0 +1,13 @@
+Important Annotations for Validation:
+
+1. @NotNull
+2. @Email
+3. @Size
+4. @Min
+5. @Max
+6. @NotEmpty
+
+etc....
+
+How to use:
+use dependency spring boot starter validation
