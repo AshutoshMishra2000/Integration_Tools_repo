@@ -1,6 +1,7 @@
 package com.example.SwaggerNew_project.dtos;
 
 import com.example.SwaggerNew_project.configuration.Groups;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,12 +22,12 @@ public class UserDTO implements Serializable {
     @NotNull(groups = Groups.Get.class,message = "User Id cannot be null")
     private String userId;
 
-    @NotEmpty(groups = Groups.Add.class)
+    @NotEmpty(groups = Groups.Add.class,message = "User first name cannot be empty of null")
     @Null(groups =Groups.Get.class )
     private String firstName;
 
     @Null(groups =Groups.Get.class )
-    @NotEmpty(groups = Groups.Add.class)
+    @NotEmpty(groups = Groups.Add.class,message = "User last name cannot be empty of null")
     private String lastName;
 
     @NotEmpty(groups = Groups.Add.class,message = "Invalid EmailId")
@@ -35,16 +36,22 @@ public class UserDTO implements Serializable {
     private String emailId;
 
     @Null(groups =Groups.Get.class )
-    @NotNull(groups = Groups.Add.class)
+    @NotEmpty(groups = Groups.Add.class,message = "User mobile number cannot be empty")
     private String mobileNo;
 
     @Null(groups =Groups.Get.class )
     @NotNull(groups = Groups.Add.class)
     private String countryCode;
 
-    @NotNull(groups = Groups.Add.class)
-    @Null(groups =Groups.Get.class )
-    private Integer addressId;
+    private String addressId;
+
+    @NotNull(groups = Groups.Add.class,message = "Please enter user parents details")
+    @Valid
+    private ParentsDTO parentsDTO;
+
+    @NotNull(groups = Groups.Add.class,message = "Please enter user address details")
+    @Valid
+    private AddressDTO addressDTO;
 
     //this is test commit
 }
