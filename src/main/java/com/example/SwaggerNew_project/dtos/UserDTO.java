@@ -14,29 +14,29 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 public class UserDTO implements Serializable {
-    @NotNull(groups = Groups.Add.class)
+    @NotNull(groups = {Groups.SerialNoGroup.class,Groups.Add.class})
     @Null(groups =Groups.Get.class )
     private Short serialNo;
 
-    @NotEmpty(groups = Groups.Add.class)
+    @NotEmpty(groups =  {Groups.UserIdGroup.class,Groups.Add.class})
     @NotNull(groups = Groups.Get.class,message = "User Id cannot be null")
     private String userId;
 
-    @NotEmpty(groups = Groups.Add.class,message = "User first name cannot be empty of null")
+    @NotEmpty(groups =  {Groups.FirstNameGroup.class,Groups.Add.class},message = "User first name cannot be empty of null")
     @Null(groups =Groups.Get.class )
     private String firstName;
 
     @Null(groups =Groups.Get.class )
-    @NotEmpty(groups = Groups.Add.class,message = "User last name cannot be empty of null")
+    @NotEmpty(groups =  {Groups.LastNameGroup.class,Groups.Add.class},message = "User last name cannot be empty of null")
     private String lastName;
 
-    @NotEmpty(groups = Groups.Add.class,message = "Invalid EmailId")
+    @NotEmpty(groups =  {Groups.EmailIdGroup.class,Groups.Add.class},message = "Invalid EmailId")
     @Null(groups =Groups.Get.class )
     @Email(groups =Groups.Add.class)
     private String emailId;
 
     @Null(groups =Groups.Get.class )
-    @NotEmpty(groups = Groups.Add.class,message = "User mobile number cannot be empty")
+    @NotEmpty(groups =  {Groups.MobileNoGroup.class,Groups.Add.class},message = "User mobile number cannot be empty")
     private String mobileNo;
 
     @Null(groups =Groups.Get.class )
